@@ -1,0 +1,30 @@
+name: "Sign"
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu24.04
+    env:
+      TERM: xterm
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Import GPG key
+        env:
+          JANK_GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
+        run: echo ${JANK_GPG_SIGNING_KEY} | base64 --decode | gpg --batch --import
+      - name: Build and test
+        run: |
+          set -e
+            ./bin/update
+            ./bin/sign
+            git commit --allow-empty -am "[automated] Publish latest release"
+            git push origin -f gh-pages
+          set +e

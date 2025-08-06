@@ -1,0 +1,12 @@
+Package: jank
+Version: 0.1
+Architecture: amd64
+Maintainer: Internal Pointers <info@internalpointers.com>
+Depends: libssl-dev, gcc, libzip-dev, libxml2-dev, libstdc++-14-dev
+Filename: ./jank_0.1-1_amd64.deb
+Size: 58027668
+MD5sum: 9d57e8079bc902bff2eb9c5ef420ce4e
+SHA1: cb9bfae533b27b5b730d8bb0a96110ecc4ef6161
+SHA256: 224b120dc68af48d7df9c0365411ce671fb6cbbc7f36747f74b9019b91b0b332
+Description: The shit.
+

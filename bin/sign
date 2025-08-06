@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+gpg --default-key "jeaye@jank-lang.org" -abs -o - Release >| Release.gpg
+gpg --default-key "jeaye@jank-lang.org" --clearsign -o - Release >| InRelease

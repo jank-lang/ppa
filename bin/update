@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Packages & Packages.gz
+dpkg-scanpackages --multiversion . >| Packages
+gzip -k -f Packages
+
+# Release, Release.gpg & InRelease
+apt-ftparchive release . >| Release
