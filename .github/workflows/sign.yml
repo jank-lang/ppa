@@ -29,6 +29,7 @@ jobs:
       - name: Publish
         run: |
           set -e
+            git fetch
             git checkout gh-pages
             git merge main
             ./bin/update
