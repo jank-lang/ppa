@@ -29,14 +29,15 @@ jobs:
       - name: Publish
         run: |
           set -e
+            git config --global user.email "jeaye@jank-lang.org"
+            git config --global user.name "Jeaye Wilkerson"
+            git config --global commit.gpgsign true
+
             git fetch
             git checkout gh-pages
             git merge main --allow-unrelated-histories
             ./bin/update
             ./bin/sign
-            git config --global user.email "jeaye@jank-lang.org"
-            git config --global user.name "Jeaye Wilkerson"
-            git config --global commit.gpgsign true
             git commit --allow-empty -am "[automated] Publish latest release"
             git push origin gh-pages
           set +e
