@@ -18,6 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           lfs: true
       - name: Import GPG key
         run: |
@@ -35,7 +36,7 @@ jobs:
 
             git fetch
             git checkout gh-pages
-            git merge main --allow-unrelated-histories
+            git merge main
             ./bin/update
             ./bin/sign
             git commit --allow-empty -am "[automated] Publish latest release"
