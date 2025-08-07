@@ -9,22 +9,33 @@ permissions:
   contents: read
 
 jobs:
-  test:
-    runs-on: ubuntu24.04
+  sign:
+    runs-on: ubuntu-24.04
     env:
       TERM: xterm
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
       - name: Import GPG key
-        env:
-          JANK_GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
-        run: echo ${JANK_GPG_SIGNING_KEY} | base64 --decode | gpg --batch --import
-      - name: Build and test
+        run: |
+          gpg_tmp="$(mktemp).gpg"
+          echo "${{ secrets.GPG_SIGNING_KEY }}" > "${gpg_tmp}"
+          gpg --import "${gpg_tmp}"
+          rm -f "${gpg_tmp}"
+          unset gpg_tmp
+      - name: Publish
         run: |
           set -e
+            git checkout gh-pages
+            git merge main
             ./bin/update
             ./bin/sign
+            git config --global user.email "jeaye@jank-lang.org"
+            git config --global user.name "Jeaye Wilkerson"
+            git config --global commit.gpgsign true
             git commit --allow-empty -am "[automated] Publish latest release"
             git push origin -f gh-pages
           set +e
