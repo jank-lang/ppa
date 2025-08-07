@@ -30,10 +30,8 @@ jobs:
         run: |
           set -e
             git fetch
-            git log main
             git checkout gh-pages
-            git log gh-pages
-            git merge main
+            git merge main --allow-unrelated-histories
             ./bin/update
             ./bin/sign
             git config --global user.email "jeaye@jank-lang.org"
