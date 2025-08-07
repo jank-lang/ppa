@@ -38,5 +38,5 @@ jobs:
             git config --global user.name "Jeaye Wilkerson"
             git config --global commit.gpgsign true
             git commit --allow-empty -am "[automated] Publish latest release"
-            git push origin -f gh-pages
+            git push origin gh-pages
           set +e
