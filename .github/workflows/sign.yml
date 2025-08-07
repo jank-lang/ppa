@@ -30,7 +30,9 @@ jobs:
         run: |
           set -e
             git fetch
+            git log main
             git checkout gh-pages
+            git log gh-pages
             git merge main
             ./bin/update
             ./bin/sign
