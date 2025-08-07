@@ -1,4 +1,4 @@
-name: "Sign"
+name: Sign
 
 on:
   push:
@@ -7,6 +7,10 @@ on:
 
 permissions:
   contents: write
+
+concurrency:
+  group: "sign"
+  cancel-in-progress: false
 
 jobs:
   sign:
