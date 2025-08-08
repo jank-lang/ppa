@@ -24,6 +24,7 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
+          token: ${{ secrets.JANK_GITHUB_TOKEN }}
       - name: Import GPG key
         run: |
           gpg_tmp="$(mktemp).gpg"
@@ -38,9 +39,6 @@ jobs:
             git config --global user.name "Jeaye Wilkerson"
             git config --global commit.gpgsign true
 
-            # We need a custom token in order to have this workflow trigger another workflow.
-            # https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow
-            git remote set-url origin https://x-access-token:${{ secrets.JANK_GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}
             git fetch
             git checkout gh-pages
             git merge main
