@@ -32,16 +32,15 @@ jobs:
           rm -f "${gpg_tmp}"
           unset gpg_tmp
       - name: Publish
-        env:
-          # We need a custom token in order to have this workflow trigger another workflow.
-          # https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow
-          GH_TOKEN: ${{ secrets.JANK_GITHUB_TOKEN }}
         run: |
           set -e
             git config --global user.email "jeaye@jank-lang.org"
             git config --global user.name "Jeaye Wilkerson"
             git config --global commit.gpgsign true
 
+            # We need a custom token in order to have this workflow trigger another workflow.
+            # https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow
+            git remote set-url origin https://x-access-token:${{ secrets.JANK_GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}
             git fetch
             git checkout gh-pages
             git merge main
