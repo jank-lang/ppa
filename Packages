@@ -1,12 +1,12 @@
 Package: jank
 Version: 0.1
 Architecture: amd64
-Maintainer: Internal Pointers <info@internalpointers.com>
+Maintainer: Jeaye Wilkerson <jeaye@jank-lang.org>
 Depends: libssl-dev, gcc, libzip-dev, libxml2-dev, libstdc++-14-dev
 Filename: ./jank_0.1-1_amd64.deb
-Size: 58027668
-MD5sum: 9d57e8079bc902bff2eb9c5ef420ce4e
-SHA1: cb9bfae533b27b5b730d8bb0a96110ecc4ef6161
-SHA256: 224b120dc68af48d7df9c0365411ce671fb6cbbc7f36747f74b9019b91b0b332
-Description: The shit.
+Size: 63259464
+MD5sum: 564c08b3bd2f9f51b5657cc4042fe5c5
+SHA1: c26acfad84170a812fa4335cbb852bfff1e0d6ac
+SHA256: 1f896a3c6d011bfb4391c0e96b54fe91864a27e98452a9ec33b6a6f0670aad0c
+Description: The native Clojure dialect hosted on LLVM with seamless C++ interop.
 
