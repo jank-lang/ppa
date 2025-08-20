@@ -4,9 +4,9 @@ Architecture: amd64
 Maintainer: Jeaye Wilkerson <jeaye@jank-lang.org>
 Depends: libssl-dev, gcc, libzip-dev, libxml2-dev, libstdc++-14-dev
 Filename: ./jank_0.1-1_amd64.deb
-Size: 63258714
-MD5sum: 48e043f048f0c2949421b39a7d0a5a8d
-SHA1: f297af91bbca11333ab278914585ddcfb4612bef
-SHA256: af0f8ace9979720440e280a26e9d9c98f2c18636553ff1b7e871a2ab6cf62ce7
+Size: 63260892
+MD5sum: f6d906231ddcb004c98c4dc7f8ba3556
+SHA1: 5298dea9d5dbd2c3eb87acf7bb272694005cc2d9
+SHA256: 289dbd0a90df83a878f4e81529d9940062929320cc000ce6dba25c2efc862ba4
 Description: The native Clojure dialect hosted on LLVM with seamless C++ interop.
 
